@@ -1,0 +1,126 @@
+@tailwind components;
+@tailwind utilities;
+
+.rich-text h1,
+.rich-text h2,
+.rich-text h3,
+.rich-text h4,
+.rich-text h5 {
+  @apply mb-4;
+}
+
+.rich-text h1,
+.rich-text h2 {
+  @apply font-bold;
+}
+
+.rich-text h1 {
+  @apply text-[64px];
+  @apply leading-[70px];
+}
+
+.rich-text h2 {
+  @apply text-[40px];
+  @apply leading-[44px];
+}
+
+.rich-text h3,
+.rich-text h4,
+.rich-text h5 {
+  @apply text-2xl;
+  @apply leading-[29px];
+}
+
+.rich-text h6 {
+  @apply text-lg;
+}
+
+.rich-text h3 {
+  @apply lg:text-[32px];
+  @apply lg:leading-[36px];
+}
+
+.rich-text p,
+.rich-text a,
+.rich-text li,
+.rich-text ul,
+.rich-text ol {
+  @apply tracking-[.005em];
+}
+
+.rich-text p {
+  @apply text-lg;
+  @apply mb-[18px];
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.rich-text a {
+  @apply underline;
+}
+
+.rich-text i {
+  @apply italic;
+}
+
+.rich-text ul,
+.rich-text ol {
+  @apply flex;
+  @apply flex-col;
+  @apply gap-2;
+  @apply lg:mb-4;
+}
+
+.rich-text ul p,
+.rich-text ol p {
+  @apply m-0;
+}
+
+.rich-text ul {
+  @apply pl-8;
+  @apply list-[square];
+}
+
+.rich-text ul li::marker {
+  @apply w-[2px];
+  @apply h-[3px];
+  @apply leading-[40px];
+}
+
+.rich-text ol {
+  @apply list-decimal;
+}
+
+.rich-text ol {
+  @apply pl-8;
+}
+
+.rich-text ol li::marker {
+  @apply font-semibold;
+}
+
+.rich-text blockquote {
+  @apply mx-8;
+  @apply my-4;
+}
+
+.rich-text blockquote p {
+  @apply m-0;
+}
+
+.rich-text hr {
+  @apply my-4;
+}
+
+.rich-text table p {
+  @apply m-0;
+}
+
+.rich-text table th,
+.rich-text table td {
+  @apply p-2;
+  @apply border;
+  @apply border-solid;
+}

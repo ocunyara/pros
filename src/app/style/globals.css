@@ -1,0 +1,12 @@
+@import 'reset.css';
+@import './components/AboutUs.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
