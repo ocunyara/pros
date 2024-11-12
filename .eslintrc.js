@@ -1,3 +1,5 @@
+baseConfig.extends = baseConfig.extends || [];
+
 baseConfig.extends.push('plugin:@next/next/recommended')
 
 baseConfig.extends = baseConfig.extends.filter((extend) => extend !== 'turbo')
