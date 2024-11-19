@@ -21,7 +21,43 @@ export const GET_ABOUT_US_PAGE = gql`
       }
       splitMediaSections: items {
         ... on SplitMediaSection {
+            title
+        description {
+          json
+        }
+        media {
+          width
+          height
+          url
+          title
+        }
+        addButton
+        imagePosition
+        }
+      }
+    }
+  }
+  }
+`;
+export const GET_HOME_PAGE = gql`
+  query {
+  page(id: "2G3ugNohTpF4MsuIndxiYH") {
     title
+    sectionsCollection {
+      doctors: items {
+        ... on Doctor {
+          name
+          image {
+            size
+            url
+            height
+            width
+          }
+        }
+      }
+      splitMediaSections: items {
+        ... on SplitMediaSection {
+            title
         description {
           json
         }
@@ -53,6 +89,30 @@ export const GET_CONTACTS = gql`
       }
     }
   }
+`;
+export const GET_PAGES_PATH = gql`
+    query {
+        pageCollection {
+            items {
+                title
+                slug
+            }
+        }
+    }
+`;
+export const GET_PAGE = gql`
+    query {
+        pageCollection(where: { slug: "about-us" }) {
+            items {
+                sectionsCollection {
+                    __typename
+                    items {
+                        __typename
+                    }
+                }
+            }
+        }
+    }
 `;
 export const GET_ABOUT_US_BLOCK = gql`
   query {
