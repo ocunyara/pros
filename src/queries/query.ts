@@ -115,67 +115,51 @@ export const GET_PAGES_PATH = gql`
         }
     }
 `;
-export const GET_PAGE = gql`
-    query {
-        pageCollection(where: { slug: "about-us" }) {
-            items {
-                sectionsCollection {
-                    __typename
-                    items {
-                        __typename
-                    }
-                }
-            }
-        }
-    }
-`;
+
 export const GET_ABOUT_US_BLOCK = gql`
     query aboutUs($id: String!) {
-        aboutUs(id: $id) {
-    title
-    aboutUsDescription
-    doctorsListCollection {
-      items {
-      ... on Doctor {
-          name
-          description {
-            json
-          }
-          image {
-            size
-            url
-            height
-            width
+      aboutUs(id: $id) {
+      title
+      aboutUsDescription
+      doctorsListCollection {
+        items {
+        ... on Doctor {
+            name
+            description {
+              json
+            }
+            image {
+              size
+              url
+              height
+              width
+            }
           }
         }
       }
     }
   }
-  }
 `;
 
-export const GET_BLOG_POST = gql`
-    query GetBlogPost($link: String!) {
-        blogCollection(where: { postLink: $link }) {
-            items {
-                title
-                blogBanner {
-                    title
-                    description
-                    contentType
-                    fileName
-                    size
-                    url
-                    width
-                    height
-                }
-                description {
-                    json
-                }
+export const GET_SPLIT_MEDIA_SECTION = gql`
+    query splitMediaSection($id: String!){
+        splitMediaSection(id: $id) {
+            title
+            description {
+                json
             }
+            media {
+                width
+                height
+                url
+                title
+            }
+            addButton
+            imagePosition
         }
     }
 `;
+
 
 export const GET_HERO_BANNER = gql`
   query {
@@ -204,48 +188,6 @@ export const GET_HERO_BANNER = gql`
             buttonUrl
           }
         }
-      }
-    }
-  }
-`;
-
-export const GET_BLOG_POSTS = gql`
-  query {
-    blogCollection {
-      items {
-        title
-        blogBanner {
-          title
-          description
-          contentType
-          fileName
-          size
-          url
-          width
-          height
-        }
-        postLink
-      }
-    }
-  }
-`;
-
-export const GET_SPLIT_MEDIA_SECTION = gql`
-  query {
-    splitMediaSectionCollection {
-      items {
-        title
-        description {
-          json
-        }
-        media {
-          width
-          height
-          url
-          title
-        }
-        addButton
-        imagePosition
       }
     }
   }

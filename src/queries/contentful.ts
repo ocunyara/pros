@@ -1,16 +1,14 @@
 import apolloClient from "@/lib/apolloClient";
-import {GET_ABOUT_US_BLOCK, GET_CONTACTS, GET_PAGES_PATH} from '@/queries/query'
+import {
+  GET_ABOUT_US_BLOCK,
+  GET_CONTACTS,
+  GET_PAGES_PATH,
+  GET_SPLIT_MEDIA_SECTION
+} from '@/queries/query'
 
 export async function getContacts() {
   const { data } = await apolloClient.query({
     query: GET_CONTACTS
-  });
-  return data;
-}
-
-export async function getPage() {
-  const { data } = await apolloClient.query({
-    query : GET_CONTACTS
   });
   return data;
 }
@@ -31,10 +29,11 @@ export async function getAboutUs(id: string) {
   return data.aboutUs;
 }
 
-
-export async function getHomePage() {
+export async function getSplitMediaSection(id: string) {
   const { data } = await apolloClient.query({
-    query: GET_CONTACTS
+    query: GET_SPLIT_MEDIA_SECTION,
+    variables: { id },
   });
-  return data;
+
+  return data.splitMediaSection;
 }
