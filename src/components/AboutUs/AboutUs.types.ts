@@ -1,6 +1,5 @@
 import { ImageType } from '@/types/image'
-import { Link } from '@/types/link'
-
+import { DescriptionProps } from '@/types/entry'
 
 export interface AboutUsProps {
   title: string
@@ -9,14 +8,9 @@ export interface AboutUsProps {
     items: {
       name: string
       description: {
-        json: object
+        json: DescriptionProps
       }
       image: ImageType
     }[]
   }
-
-  /**
-   * Component classes override
-   */
-  theme?: Record<string, string>
 }

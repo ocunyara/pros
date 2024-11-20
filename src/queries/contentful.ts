@@ -28,7 +28,7 @@ export async function getAboutUs(id: string) {
     variables: { id },
   });
 
-  return data;
+  return data.aboutUs;
 }
 
 

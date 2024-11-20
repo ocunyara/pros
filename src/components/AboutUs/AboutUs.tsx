@@ -1,23 +1,18 @@
-'use client'
-
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Pagination } from "swiper/modules";
-import { useSuspenseQuery } from "@apollo/client";
-import { GET_ABOUT_US_BLOCK } from "@/queries/query";
 import { AboutUsProps } from "@/components/AboutUs/AboutUs.types";
 import { RichText } from "@/components/RichText";
+import { getAboutUs } from "@/queries/contentful";
+import { IdProps } from "@/types/entry";
 
 import 'swiper/css';
-import {ContactDataProps} from "@/types/contactDataProps";
-import {getAboutUs} from "@/queries/contentful";
 
-export const AboutUs = (props) => {
-  const { sys } = props
-
-  const [cmsData, setSmcData] = useState<ContactDataProps | null>(null);
+export const AboutUs = (props: IdProps) => {
+  const [cmsData, setSmcData] = useState<AboutUsProps | null>(null);
   const [error, setError] = useState<Error | string | null>(null);
+  const { sys } = props;
 
   useEffect(() => {
     getAboutUs(sys.id)
@@ -30,18 +25,9 @@ export const AboutUs = (props) => {
       });
   }, []);
 
-  console.log(cmsData)
-
   if (!cmsData) return <p>Loading...</p>;
 
-
-
-  console.log(props)
-
-
-
-  return <h1>About us</h1>
-  const {title, aboutUsDescription, doctorsListCollection} = data.aboutUs
+  const {title, aboutUsDescription, doctorsListCollection} = cmsData
 
   const pagination = {
     clickable: true,
@@ -53,10 +39,6 @@ export const AboutUs = (props) => {
         </div>`
     },
   }
-
-  console.log(data)
-
-  return <h1>About us</h1>
 
   return (
     <div className='doctors-slider m-auto 2xl:container px-4 pt-10 lg:pt-20'>
@@ -73,14 +55,14 @@ export const AboutUs = (props) => {
           pagination={pagination}
         >
           {doctorsListCollection.items.length
-            ? doctorsListCollection.items.map((item, index) => {
+            ? doctorsListCollection.items.map((item, index: number) => {
               return (
-                <SwiperSlide>
+                <SwiperSlide key={index}>
                   <div className='lg:flex lg:h-full'>
                     <Image src={item.image.url} alt={item.name} width={500} height={700} className='rounded aspect-[3.5/5] object-cover mb-14 lg:mb-0 lg:mr-4 h-[340px] object-top lg:h-full'/>
                     <div>
                       <h3 className='text-xl font-semibold my-4'>{item.name}</h3>
-                      <div>{<RichText {...item.description.json} />}</div>
+                      <div><RichText {...item.description.json} /></div>
                     </div>
                   </div>
                 </SwiperSlide>
