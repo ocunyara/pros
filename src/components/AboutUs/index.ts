@@ -1,3 +1,3 @@
-import AboutUs from '@/app/components/AboutUs/AboutUs'
+import AboutUs from '@/components/AboutUs/AboutUs'
 
 export { AboutUs }

@@ -6,7 +6,6 @@ import logo from '@/assets/logo.svg'
 import { ContactDataProps } from "@/types/contactDataProps";
 
 const Footer = (props: ContactDataProps) => {
-  console.log(props)
   return (
     <footer id="footer" className="relative z-50 pt-8 bg-global lg:mt-20 lg:pt-20">
       <Link href='/' className="flex flex-col space-x-3 mx-auto items-center mb-10">

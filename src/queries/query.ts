@@ -96,6 +96,21 @@ export const GET_PAGES_PATH = gql`
             items {
                 title
                 slug
+                sectionsCollection {
+                    items {
+                        __typename
+                        ... on AboutUs {
+                            sys {
+                                id
+                            }
+                        }
+                        ... on SplitMediaSection {
+                            sys {
+                                id
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -115,8 +130,8 @@ export const GET_PAGE = gql`
     }
 `;
 export const GET_ABOUT_US_BLOCK = gql`
-  query {
-   aboutUs(id: "1VGVdJ5SzvL43T2pYww8Xr") {
+    query aboutUs($id: String!) {
+        aboutUs(id: $id) {
     title
     aboutUsDescription
     doctorsListCollection {
@@ -137,6 +152,29 @@ export const GET_ABOUT_US_BLOCK = gql`
     }
   }
   }
+`;
+
+export const GET_BLOG_POST = gql`
+    query GetBlogPost($link: String!) {
+        blogCollection(where: { postLink: $link }) {
+            items {
+                title
+                blogBanner {
+                    title
+                    description
+                    contentType
+                    fileName
+                    size
+                    url
+                    width
+                    height
+                }
+                description {
+                    json
+                }
+            }
+        }
+    }
 `;
 
 export const GET_HERO_BANNER = gql`
@@ -208,29 +246,6 @@ export const GET_SPLIT_MEDIA_SECTION = gql`
         }
         addButton
         imagePosition
-      }
-    }
-  }
-`;
-
-export const GET_BLOG_POST = gql`
- query GetBlogPost($link: String!) {
-    blogCollection(where: { postLink: $link }) {
-      items {
-        title
-        blogBanner {
-          title
-          description
-          contentType
-          fileName
-          size
-          url
-          width
-          height
-        }
-        description {
-          json
-        }
       }
     }
   }

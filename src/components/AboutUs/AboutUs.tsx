@@ -1,20 +1,47 @@
 'use client'
 
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Pagination } from "swiper/modules";
 import { useSuspenseQuery } from "@apollo/client";
 import { GET_ABOUT_US_BLOCK } from "@/queries/query";
-import { AboutUsProps } from "@/app/components/AboutUs/AboutUs.types";
-import { RichText } from "@/app/components/RichText";
+import { AboutUsProps } from "@/components/AboutUs/AboutUs.types";
+import { RichText } from "@/components/RichText";
 
 import 'swiper/css';
+import {ContactDataProps} from "@/types/contactDataProps";
+import {getAboutUs} from "@/queries/contentful";
 
-export const AboutUs = () => {
-  const { error, data } = useSuspenseQuery<{ aboutUs: AboutUsProps }>(GET_ABOUT_US_BLOCK);
+export const AboutUs = (props) => {
+  const { sys } = props
+
+  const [cmsData, setSmcData] = useState<ContactDataProps | null>(null);
+  const [error, setError] = useState<Error | string | null>(null);
+
+  useEffect(() => {
+    getAboutUs(sys.id)
+      .then((result) => {
+        setSmcData(result)
+      })
+      .catch((err) => {
+        setError(err);
+        console.error(error);
+      });
+  }, []);
+
+  console.log(cmsData)
+
+  if (!cmsData) return <p>Loading...</p>;
+
+
+
+  console.log(props)
+
+
+
+  return <h1>About us</h1>
   const {title, aboutUsDescription, doctorsListCollection} = data.aboutUs
-  if (error) return <p>Error: {error.message}</p>;
 
   const pagination = {
     clickable: true,
@@ -28,6 +55,8 @@ export const AboutUs = () => {
   }
 
   console.log(data)
+
+  return <h1>About us</h1>
 
   return (
     <div className='doctors-slider m-auto 2xl:container px-4 pt-10 lg:pt-20'>

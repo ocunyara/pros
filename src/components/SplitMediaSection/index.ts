@@ -1,3 +1,3 @@
-import SplitMediaSection from '@/app/components/SplitMediaSection/SplitMediaSection'
+import SplitMediaSection from '@/components/SplitMediaSection/SplitMediaSection'
 
 export { SplitMediaSection }

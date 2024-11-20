@@ -1,8 +1,7 @@
-'use client'
 import React, {useEffect, useRef} from 'react';
 import { Document } from '@contentful/rich-text-types'
-import {RichText} from '@/app/components/RichText'
-import {Button} from '@/app/components/Button'
+import {RichText} from '@/components/RichText'
+import {Button} from '@/components/Button'
 import {useSuspenseQuery} from '@apollo/client';
 import {GET_SPLIT_MEDIA_SECTION} from '@/queries/query';
 import Image from 'next/image';
@@ -19,11 +18,9 @@ interface splitMediaSection {
 }
 
 const SplitMediaSection = () => {
-  const {error, data} = useSuspenseQuery<{ splitMediaSectionCollection: splitMediaSection }>(GET_SPLIT_MEDIA_SECTION);
-  if (error) return <p>Error: {error.message}</p>;
 
-  console.log(data)
 
+  return <h1>SplitMediaSection</h1>
   // const {title, aboutUsDescription, doctorsListCollection} = data.splitMediaSection
 
   const refsToComponents = useRef<HTMLDivElement[]>([]);

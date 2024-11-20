@@ -1,10 +1,27 @@
+import { GetStaticProps, GetStaticPaths } from 'next';
 import { fetchRootPages } from "@/queries/contentful";
+import ComposeSections from "@/components/Section/ComposeSections";
 
-export async function getStaticPaths() {
-  const pages = await fetchRootPages();
+interface PageProps {
+  pageCollection: {
+    items: {
+      slug: string
+      title: string
+    }[]
+  }
+}
+
+interface ParamsProps {
+  params: {
+    slug: string;
+  }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const pages: PageProps = await fetchRootPages();
 
   const paths = pages.pageCollection.items
-    .filter((page) => page.slug !== "/") // Exclude the home page
+    .filter((page) => page.slug !== "/")
     .map((page) => ({
       params: { slug: page.slug },
     }));
@@ -15,9 +32,8 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
-  const pages = await fetchRootPages();
-
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const pages: PageProps = await fetchRootPages();
   const page = pages.pageCollection.items.find((p) => p.slug === params.slug);
 
   if (!page) {
@@ -31,11 +47,14 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function Page({ page }) {
+const Page: React.FC<PageProps> = ({ page }) => {
+  console.log(page)
   return (
-    <div>
+    <>
       <h1>{page.title}</h1>
-      <div>{/* Render content */}</div>
-    </div>
+      <ComposeSections sections={page.sectionsCollection} />
+    </>
   );
 }
+
+export default Page;

@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
+import { ApolloProvider } from '@apollo/client'
 import { useEffect, useState } from "react";
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { getContacts } from "@/queries/contentful";
 import { ContactDataProps } from "@/types/contactDataProps";
-import '@/style/globals.css';
 
 type LayoutProps = {
   children: ReactNode;
