@@ -4,7 +4,6 @@ const ComposeSections = ({sections}) => {
 
   console.log(sections)
 
-
   return (
     <>
       {sections.items.map((section, index: number) => {

@@ -96,6 +96,10 @@ export const GET_PAGES_PATH = gql`
             items {
                 title
                 slug
+                subHeader
+                description {
+                    json
+                }
                 sectionsCollection {
                     items {
                         __typename
@@ -156,6 +160,7 @@ export const GET_SPLIT_MEDIA_SECTION = gql`
             }
             addButton
             imagePosition
+            addBackground
         }
     }
 `;

@@ -15,7 +15,8 @@ const config: Config = {
         gold: '#B4AB9B',
         goldLight: '#B4AB9B',
         blue: '#abb8c3',
-        global: '#e5e4e2'
+        global: '#e5e4e2',
+        lite: '#f7f7f7'
       },
       // fontFamily: {
       //   montserrat: ['var(--montserrat-font)', ...fontFamily.sans],

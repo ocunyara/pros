@@ -19,7 +19,7 @@ export const AboutUs = (props: IdProps) => {
       .then((result) => {
         setSmcData(result)
       })
-      .catch((err) => {
+      .catch((err: Error) => {
         setError(err);
         console.error(error);
       });
@@ -27,7 +27,11 @@ export const AboutUs = (props: IdProps) => {
 
   if (!cmsData) return <p>Loading...</p>;
 
-  const {title, aboutUsDescription, doctorsListCollection} = cmsData
+  const {
+    title,
+    aboutUsDescription,
+    doctorsListCollection
+  } = cmsData
 
   const pagination = {
     clickable: true,
