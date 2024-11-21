@@ -1,5 +1,6 @@
 @import 'reset.css';
 @import './components/AboutUs.css';
+@import './components/HeroBanner.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

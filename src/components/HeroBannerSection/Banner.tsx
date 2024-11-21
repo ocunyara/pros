@@ -1,29 +1,52 @@
 import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image';
-import { BannerProps } from '@/app/components/HeroBannerSection/HeroBannerSection.types'
-import {Button} from "@/app/components/Button";
+import { BannerProps } from '@/components/HeroBannerSection/HeroBannerSection.types'
+import {Button} from "@/components/Button";
 
 export const Banner = ({
-   heroBannerImage,
-   heroBannerTitle,
+   bannerImage,
+   title,
    subTitle,
    heroBannerReference,
 }: BannerProps) => {
 
+  const scrollY = useRef<number>(0)
+  const heroBanner = useRef<HTMLDivElement>(null)
+
+  const handleScroll = () => {
+    scrollY.current = window.scrollY
+
+    if (heroBanner.current) {
+      heroBanner.current.style.transform = `translateY(${
+        scrollY.current / 1.35
+      }px)`
+    }
+  }
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', handleScroll)
+
+      return () => {
+        window.removeEventListener('scroll', handleScroll)
+      }
+    }
+  }, [handleScroll])
+
   return (
     <div className='flex flex-wrap 2xl:container m-auto px-4 py-10 xl:py-20 lg:px-20 h-full bg-gold lg:bg-auto'>
       <div className='`relative z-10 self-end lg:w-10/12 xl:w-[1000px]'>
-        {heroBannerTitle && (
+        {subTitle && (
           <div className='mb-4 lg:mb-6'>
               <span className='lg:text-xl text-white font-semibold leading-large'>
-                {subTitle}
+                {title}
               </span>
           </div>
         )}
         <div className='m lg:mt-6 lg:mb-16'>
             <span className='text-white font-semibold text-2xl leading-7 lg:text-5xl lg:leading-large'>
-              {heroBannerTitle}
+              {subTitle}
             </span>
         </div>
         {heroBannerReference && (
@@ -40,9 +63,10 @@ export const Banner = ({
         )}
       </div>
       <div
+        ref={heroBanner}
         className='parallax-bg absolute w-full h-full inset-0 object-cover max-lg:!translate-y-0'>
-        {heroBannerImage.url ? (
-          <Image className='w-full lg:h-[750px] object-cover' src={heroBannerImage.url} width={1920} height={650} alt='text'/>
+        {bannerImage.url ? (
+          <Image className='w-full lg:h-[750px] object-cover' src={bannerImage.url} width={1920} height={720} alt='text'/>
         ) : (
           <div className='bg-color-blue-3 w-full h-full' />
         )}
