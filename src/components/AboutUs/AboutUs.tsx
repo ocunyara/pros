@@ -66,7 +66,7 @@ export const AboutUs = (props: IdProps) => {
                     <Image src={item.image.url} alt={item.name} width={500} height={700} className='rounded aspect-[3.5/5] object-cover mb-14 lg:mb-0 lg:mr-4 h-[340px] object-top lg:h-full'/>
                     <div>
                       <h3 className='text-xl font-semibold my-4'>{item.name}</h3>
-                      <div><RichText {...item.description.json} /></div>
+                      <div><RichText {...item.description.json } /></div>
                     </div>
                   </div>
                 </SwiperSlide>
