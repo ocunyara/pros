@@ -30,7 +30,7 @@
 		span {
 			font-size: 22px;
 			line-height: 33px;
-			color: #ffffff;
+			color: #e5e4e2;
 		}
 	}
 
@@ -42,7 +42,8 @@
 		span {
 			font-size: 22px;
 			line-height: 33px;
-			color: #B4AB9B;
+			font-weight: bold;
+			color: #e5e4e2;
 		}
 	}
 }

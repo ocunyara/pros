@@ -51,7 +51,7 @@ const Page: React.FC<PageProps> = ({ page }) => {
   console.log(page)
   return (
     <>
-      {/*<div className='bg-global text-center lg:py-32'>*/}
+      {/*<div className=''>*/}
       {/*  <h1 className='text-2xl font-bold mb-4 lg:mb-6 lg:text-4xl text-center'>{page.title}</h1>*/}
       {/*  <p className='text-xl font-light'>{page.subHeader}</p>*/}
       {/*</div>*/}

@@ -19,7 +19,7 @@ export const HeroBannerSection= (props: IdProps) => {
 
 
   const fullHeightView = fullHeight
-    ? 'w-screen h-[540px] lg:h-[740px]'
+    ? 'w-screen h-[540px] lg:h-[820px]'
     : 'h-[570px] lg:h-[340px]'
   const { sys } = props;
 
@@ -81,7 +81,7 @@ export const HeroBannerSection= (props: IdProps) => {
           </Swiper>
         </div>
       ) : (
-        <SimpleBanner {...props.slides[0]} />
+        <SimpleBanner {...cmsData.banersCollection.items[0]} />
       )}
     </div>
   )

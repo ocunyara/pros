@@ -158,6 +158,10 @@ export const GET_ABOUT_HERO_BANNER = gql`
               title
               subTitle
               tabTitle
+              button {
+                  buttonTitle
+                  buttonUrl
+              }
               bannerImage {
                   url
                   size
