@@ -1,48 +1,73 @@
 import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image';
-import { BannerProps } from '@/app/components/HeroBannerSection/HeroBannerSection.types'
-import {Button} from "@/app/components/Button";
+import { BannerProps } from '@/components/HeroBannerSection/HeroBannerSection.types'
+import { Button } from "@/components/Button";
+import { RiArrowRightSLine } from "react-icons/ri";
 
 export const Banner = ({
-   heroBannerImage,
-   heroBannerTitle,
+   bannerImage,
+   title,
    subTitle,
-   heroBannerReference,
+   button
 }: BannerProps) => {
+
+  const scrollY = useRef<number>(0)
+  const heroBanner = useRef<HTMLDivElement>(null)
+
+  const handleScroll = () => {
+    scrollY.current = window.scrollY
+
+    if (heroBanner.current) {
+      heroBanner.current.style.transform = `translateY(${
+        scrollY.current / 1.35
+      }px)`
+    }
+  }
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', handleScroll)
+
+      return () => {
+        window.removeEventListener('scroll', handleScroll)
+      }
+    }
+  }, [handleScroll])
 
   return (
     <div className='flex flex-wrap 2xl:container m-auto px-4 py-10 xl:py-20 lg:px-20 h-full bg-gold lg:bg-auto'>
       <div className='`relative z-10 self-end lg:w-10/12 xl:w-[1000px]'>
-        {heroBannerTitle && (
+        {subTitle && (
           <div className='mb-4 lg:mb-6'>
               <span className='lg:text-xl text-white font-semibold leading-large'>
-                {subTitle}
+                {title}
               </span>
           </div>
         )}
         <div className='m lg:mt-6 lg:mb-16'>
             <span className='text-white font-semibold text-2xl leading-7 lg:text-5xl lg:leading-large'>
-              {heroBannerTitle}
+              {subTitle}
             </span>
         </div>
-        {heroBannerReference && (
+        {button && (
               <div className='link-block text-white mt-20 lg:mt-32 mb-10 hidden lg:block'>
-            {heroBannerReference.buttonUrl &&
-              <Link href={heroBannerReference.buttonUrl} title={heroBannerReference.buttonTitle}>
-                {heroBannerReference.buttonTitle}
+            {button.buttonUrl &&
+              <Link className='text-xl flex items-center' href={button.buttonUrl} title={button.buttonTitle}>
+                {button.buttonTitle} <RiArrowRightSLine className='ml-2 text-2xl' />
               </Link>}
-            {heroBannerReference.buttonUrl === null &&
-              <Button title={heroBannerReference.buttonTitle}>
-                {heroBannerReference.buttonTitle}
+            {button.buttonUrl === null &&
+              <Button className='text-xl flex items-center' title={button.buttonTitle}>
+                {button.buttonTitle} <RiArrowRightSLine className='ml-2 text-2xl' />
               </Button>}
           </div>
         )}
       </div>
       <div
+        ref={heroBanner}
         className='parallax-bg absolute w-full h-full inset-0 object-cover max-lg:!translate-y-0'>
-        {heroBannerImage.url ? (
-          <Image className='w-full lg:h-[750px] object-cover' src={heroBannerImage.url} width={1920} height={650} alt='text'/>
+        {bannerImage.url ? (
+          <Image className='w-full lg:h-[820px] object-cover' src={bannerImage.url} width={1920} height={820} alt='text'/>
         ) : (
           <div className='bg-color-blue-3 w-full h-full' />
         )}
@@ -53,34 +78,34 @@ export const Banner = ({
 }
 
 export const SimpleBanner = ({
-  titleLabel,
-  title,
-  subtitle,
-  link
+   bannerImage,
+   title,
+   subTitle,
+   button
 }: BannerProps) => {
   return (
-    <div className='bg-color-blue-3 pt-[200px] lg:pt-56 pb-[60px]'>
-      <div className='2xl:container px-4'>
+    <div className={`${bannerImage ? 'lg:h-[540px]' : 'bg-global lg:py-32'}`}>
+      <div className='2xl:container m-auto px-4'>
         <div className='xl:w-6/12'>
-          {titleLabel && (
+          {title && (
             <div className='mb-4 lg:mb-6'>
               <span className='text-lg text-white leading-large'>
-                {titleLabel}
+                {title}
               </span>
             </div>
           )}
         </div>
         <div className='mt-4 lg:mt-6 lg:mb-16 lg:w-10/12'>
            <span className='text-white leading-7 lg:text-[32px] lg:leading-9'>
-              {subtitle}
+              {subTitle}
             </span>
         </div>
-        {link && (
-          <div className='link-block text-white pt-16 lg:pt-0'>
-            <Link href={link.url} title={link.text}>
-              {link.text}
-            </Link>
-          </div>
+      </div>
+      <div className='parallax-bg absolute w-full h-full inset-0 object-cover max-lg:!translate-y-0'>
+        {bannerImage.url ? (
+          <Image className='w-full lg:h-[820px] object-cover' src={bannerImage.url} width={1920} height={540} alt='text'/>
+        ) : (
+          <div className='bg-color-blue-3 w-full h-full' />
         )}
       </div>
     </div>

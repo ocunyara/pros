@@ -1,6 +1,13 @@
 import allSections from '@/components/Section'
+import { IdProps } from '@/types/entry'
 
-const ComposeSections = ({sections}) => {
+interface SectionProp {
+  sections: {
+    items: IdProps[]
+  }
+}
+
+const ComposeSections = ({sections}: SectionProp) => {
 
   console.log(sections)
 
@@ -9,7 +16,7 @@ const ComposeSections = ({sections}) => {
       {sections.items.map((section, index: number) => {
         const { __typename, ...rest } = section
         const Component = allSections[__typename]
-        console.log(__typename, rest)
+        console.log(rest)
         if (!Component) {
           console.error(`Section not registered: ${__typename}`)
           return null

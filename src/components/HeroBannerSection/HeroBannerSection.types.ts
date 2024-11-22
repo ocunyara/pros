@@ -1,4 +1,5 @@
 import { ImageType } from '@/types/image'
+import { ButtonProps } from "@/types/link";
 
 interface Link {
   text: string
@@ -6,11 +7,13 @@ interface Link {
 }
 
 export interface BannerProps {
-  heroBannerImage: ImageType
-  heroBannerTitle: string
+  bannerImage: ImageType
+  title: string
   subTitle?: string
   link?: Link
+  tabTitle: string
   fullHeight?: boolean
+  button: ButtonProps
   heroBannerReference: {
     buttonTitle: string
     buttonUrl: string
@@ -18,6 +21,8 @@ export interface BannerProps {
 }
 
 export interface BannersProps {
-  slides: BannerProps[]
+  banersCollection: {
+    items: BannerProps[]
+  }
   fullHeight: boolean
 }

@@ -1,0 +1,171 @@
+.hero-banner {
+	.swiper-pagination-bullets.swiper-pagination-horizontal {
+		display: flex;
+		padding: 0 16px;
+		bottom: 40px;
+		top: auto;
+	}
+
+	.swiper-pagination-bullet {
+		width: 100%;
+		transition: all 100ms ease-out;
+		height: 4px;
+		display: inline-block;
+		border-radius: 0;
+		background: rgba(255, 255, 255, 40%);
+		opacity: 1;
+		position: relative;
+		margin: 0 !important;
+
+		span {
+			display: none;
+			transition: all 0.1s ease-out;
+		}
+	}
+
+	.swiper-pagination-bullet:hover {
+		background: #ffffff;
+		height: 4px;
+
+		span {
+			font-size: 22px;
+			line-height: 33px;
+			color: #e5e4e2;
+		}
+	}
+
+	.swiper-pagination-bullet.active {
+		background: #ffffff;
+	}
+
+	.swiper-pagination-bullet.active {
+		span {
+			font-size: 22px;
+			line-height: 33px;
+			font-weight: bold;
+			color: #e5e4e2;
+		}
+	}
+}
+
+@media (min-width: 1024px) and (min-height: 550px) and (max-height: 860px) {
+	body .hero-banner {
+		.swiper-pagination-bullet {
+			transition: all 100ms ease-out;
+			width: 4px;
+			height: 55px;
+
+			span {
+				font-size: 16px;
+			}
+		}
+
+		.swiper-pagination-bullet:hover {
+			background: #ffffff;
+			height: 65px;
+
+			span {
+				font-size: 20px;
+				line-height: 30px;
+			}
+		}
+
+		.swiper-pagination-bullet.active {
+			background: #ffffff;
+			height: 65px;
+
+			span {
+				font-size: 20px;
+				line-height: 30px;
+			}
+		}
+	}
+}
+
+@media (min-width: 1024px) and (min-height: 400px) and (max-height: 550px) {
+	body .hero-banner {
+		.swiper-pagination-bullet {
+			transition: all 100ms ease-out;
+			width: 4px;
+			height: 45px;
+
+			span {
+				font-size: 16px;
+			}
+		}
+
+		.swiper-pagination-bullet:hover {
+			background: #ffffff;
+			height: 45px;
+
+			span {
+				font-size: 18px;
+				line-height: 30px;
+			}
+		}
+
+		.swiper-pagination-bullet.active {
+			background: #ffffff;
+			height: 45px;
+
+			span {
+				font-size: 18px;
+				line-height: 30px;
+			}
+		}
+	}
+
+	body .hero-banner .hero-banner-title {
+		font-size: 50px;
+		line-height: 30px;
+	}
+
+	body .hero-banner .link-block {
+		margin-top: 0 !important;
+	}
+}
+
+
+@screen lg {
+	.hero-banner {
+		.swiper-pagination-bullet {
+			transition: all 100ms ease-out;
+			width: 4px;
+			height: 75px;
+			display: inline-block;
+			border-radius: 0;
+			background: rgba(255, 255, 255, 40%);
+			opacity: 1;
+			position: relative;
+			margin: 0 0 0 100% !important;
+
+			span {
+				display: none;
+				transition: all 0.1s ease-out;
+			}
+		}
+
+		.swiper-pagination-bullet:hover {
+			background: #ffffff;
+			height: 81px;
+		}
+
+		.swiper-pagination-bullet.active {
+			background: #ffffff;
+			height: 81px;
+		}
+
+		.swiper-pagination-bullet {
+			span {
+				display: block;
+			}
+		}
+	}
+
+	.hero-banner {
+		.swiper-vertical > .swiper-pagination-bullets,
+		.swiper-pagination-vertical.swiper-pagination-bullets {
+			right: 32px;
+		}
+	}
+}

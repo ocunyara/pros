@@ -103,6 +103,11 @@ export const GET_PAGES_PATH = gql`
                 sectionsCollection {
                     items {
                         __typename
+                        ... on HeroBannerSection {
+                            sys {
+                                id
+                            }
+                        }
                         ... on AboutUs {
                             sys {
                                 id
@@ -141,6 +146,32 @@ export const GET_ABOUT_US_BLOCK = gql`
           }
         }
       }
+    }
+  }
+`;
+export const GET_ABOUT_HERO_BANNER = gql`
+    query heroBannerSection($id: String!) {
+        heroBannerSection(id: $id) {
+        banersCollection {
+          items {
+          ... on PageBanner {
+              title
+              subTitle
+              tabTitle
+              button {
+                  buttonTitle
+                  buttonUrl
+              }
+              bannerImage {
+                  url
+                  size
+                  title
+                  width
+                  height
+              }
+            }
+          }
+        }
     }
   }
 `;

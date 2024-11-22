@@ -1,5 +1,6 @@
 import apolloClient from "@/lib/apolloClient";
 import {
+  GET_ABOUT_HERO_BANNER,
   GET_ABOUT_US_BLOCK,
   GET_CONTACTS,
   GET_PAGES_PATH,
@@ -27,6 +28,15 @@ export async function getAboutUs(id: string) {
   });
 
   return data.aboutUs;
+}
+
+export async function getHeroBanner(id: string) {
+  const { data } = await apolloClient.query({
+    query: GET_ABOUT_HERO_BANNER,
+    variables: { id },
+  });
+
+  return data.heroBannerSection;
 }
 
 export async function getSplitMediaSection(id: string) {
