@@ -18,7 +18,6 @@
 
 @media (max-width: 1024px) {
 	.doctors-slider {
-
 		.swiper-pagination {
 			position: absolute;
 			top: 350px;
@@ -39,10 +38,18 @@
 		}
 
 		.swiper-pagination {
-			width: 30%;
+			width: 30% !important;
 			position: absolute;
 			left: 0;
-			bottom: 0;
+			bottom: 0 !important;
+			top: auto !important;
+		}
+
+		.swiper-pagination-bullet {
+			width: auto;
+			height: 250px;
+			border-radius: 0;
+			opacity: 1;
 		}
 	}
 }
