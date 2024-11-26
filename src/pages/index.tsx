@@ -1,21 +1,40 @@
-import { fetchRootPages } from "@/queries/contentful";
+import { GetStaticProps } from 'next';
+import { fetchRootPages } from '@/queries/contentful';
+import ComposeSections from '@/components/Section/ComposeSections';
 
-// Fetch only necessary data for the home page
-export async function getStaticProps() {
+interface HomePageProps {
+  page: {
+    title: string;
+    sectionsCollection: any;
+  } | null;
+}
+
+export const getStaticProps: GetStaticProps = async () => {
   const pages = await fetchRootPages();
-  const homePage = pages.pageCollection.items.find((p) => p.slug === "/");
+  const page = pages.pageCollection.items.find((p) => p.slug === '/');
+
+  if (!page) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
-    props: { page: homePage },
-    revalidate: 60, // Revalidate every 60 seconds (optional, if you want to keep the content fresh)
+    props: { page },
   };
-}
+};
 
-export default function HomePage({ page }) {
+const HomePage: React.FC<HomePageProps> = ({ page }) => {
+  if (!page) {
+    return <p>Page not found</p>;
+  }
+
   return (
-    <div>
-      <h1>{page.title}</h1>
-      <div>123123123123123</div>
-    </div>
+    <>
+      <h1 className="text-2xl font-bold mb-4 lg:mb-6 lg:text-4xl text-center">{page.title}</h1>
+      <ComposeSections sections={page.sectionsCollection} />
+    </>
   );
-}
+};
+
+export default HomePage;
