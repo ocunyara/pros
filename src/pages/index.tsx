@@ -31,7 +31,6 @@ const HomePage: React.FC<HomePageProps> = ({ page }) => {
 
   return (
     <>
-      <h1 className="text-2xl font-bold mb-4 lg:mb-6 lg:text-4xl text-center">{page.title}</h1>
       <ComposeSections sections={page.sectionsCollection} />
     </>
   );

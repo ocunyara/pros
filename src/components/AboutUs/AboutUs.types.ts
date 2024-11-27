@@ -4,6 +4,7 @@ import { DescriptionProps } from '@/types/entry'
 export interface AboutUsProps {
   title: string
   aboutUsDescription: string
+  fullInfo: boolean
   doctorsListCollection: {
     items: {
       name: string
@@ -11,6 +12,12 @@ export interface AboutUsProps {
         json: DescriptionProps
       }
       image: ImageType
+      certificates: {
+        json: DescriptionProps
+      }
+      education: {
+        json: DescriptionProps
+      }
     }[]
   }
 }

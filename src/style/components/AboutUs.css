@@ -1,16 +1,11 @@
 .doctors-slider {
-
-	.swiper-pagination {
-
-	}
-
 	.active {
 		outline: 2px solid #B4AB9B;
 	}
 
 	.swiper-fade {
 		.swiper-slide {
-			background: white;
+			background: #f7f7f7;
 			height: auto;
 		}
 	}
@@ -20,7 +15,7 @@
 	.doctors-slider {
 		.swiper-pagination {
 			position: absolute;
-			top: 350px;
+			top: 370px !important;
 			display: flex;
 			justify-content: center;
 			width: 100%;
@@ -41,7 +36,7 @@
 			width: 30% !important;
 			position: absolute;
 			left: 0;
-			bottom: 0 !important;
+			bottom: 80px !important;
 			top: auto !important;
 		}
 

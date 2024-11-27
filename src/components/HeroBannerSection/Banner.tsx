@@ -36,7 +36,7 @@ export const Banner = ({
   }, [handleScroll])
 
   return (
-    <div className='flex flex-wrap 2xl:container m-auto px-4 py-10 xl:py-20 lg:px-20 h-full bg-gold lg:bg-auto'>
+    <div className='flex flex-wrap 2xl:containe px-4 py-10 xl:py-20 lg:px-20 h-full bg-gold lg:bg-auto'>
       <div className='`relative z-10 self-end lg:w-10/12 xl:w-[1000px]'>
         {subTitle && (
           <div className='mb-4 lg:mb-6'>
@@ -85,7 +85,7 @@ export const SimpleBanner = ({
 }: BannerProps) => {
   return (
     <div className={`${bannerImage ? 'lg:h-[540px]' : 'bg-global lg:py-32'}`}>
-      <div className='2xl:container m-auto px-4'>
+      <div className='2xl:container px-4'>
         <div className='xl:w-6/12'>
           {title && (
             <div className='mb-4 lg:mb-6'>

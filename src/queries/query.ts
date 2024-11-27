@@ -137,6 +137,12 @@ export const GET_ABOUT_US_BLOCK = gql`
             description {
               json
             }
+            education {
+                json
+            }
+            certificates {
+                json
+            }
             image {
               size
               url
@@ -146,6 +152,7 @@ export const GET_ABOUT_US_BLOCK = gql`
           }
         }
       }
+      fullInfo
     }
   }
 `;
