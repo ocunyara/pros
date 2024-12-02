@@ -24,7 +24,6 @@ const config: Config = {
         primary: '#F7F2EF',
         black: '#202020',
         gold: '#B4AB9B',
-        goldLight: '#B4AB9B',
         blue: '#abb8c3',
         global: '#e5e4e2',
         lite: '#f7f7f7'

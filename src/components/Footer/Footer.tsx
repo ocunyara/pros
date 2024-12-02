@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaFacebook } from "react-icons/fa";
+import { FaFacebook, FaTelegram } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import logo from '@/assets/logo.svg'
 import { ContactDataProps } from "@/types/contactDataProps";
 
 const Footer = (props: ContactDataProps) => {
   return (
-    <footer id="footer" className="relative z-50 pt-8 bg-global lg:mt-20 lg:pt-20">
+    <footer id="footer" className="relative z-50 pt-8 bg-global lg:pt-20">
       <Link href='/' className="flex flex-col space-x-3 mx-auto items-center mb-10">
         <Image className='w-[75px]' src={logo} alt='logo' width='70' height='70'/>
       </Link>
@@ -27,6 +27,9 @@ const Footer = (props: ContactDataProps) => {
         </li>
         <li className='flex items-center mx-5'>
           <a rel="noopener noreferrer" target='_blank' href="https://www.instagram.com/ploskyriv/"><FaInstagram className='text-3xl' /></a>
+        </li>
+        <li className='flex items-center mx-5'>
+          <a rel="noopener noreferrer" target='_blank' href="https://www.instagram.com/ploskyriv/"><FaTelegram className='text-3xl' /></a>
         </li>
       </ul>
       <div className='bg-blue text-center text-white p-2'>

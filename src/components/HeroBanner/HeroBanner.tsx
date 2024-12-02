@@ -38,11 +38,11 @@ const HeroBanner = () => {
                    quality={50} alt={item.heroBannerTitle}/>
             <div className='absolute w-full h-full inset-0 bg-black/60'></div>
             <h2
-              className='absolute left-[20%] top-[30%] text-4xl sm:text-5xl lg:text-6xl font-semibold text-goldLight sm:w-8/12'>
+              className='absolute left-[20%] top-[30%] text-4xl sm:text-5xl lg:text-6xl font-semibold text-gold sm:w-8/12'>
               {item.heroBannerTitle}
             </h2>
             <h3
-              className='absolute left-[20%] top-[39%] text-2xl sm:text-3xl lg:text-4xl font-semibold text-goldLight sm:w-8/12'>
+              className='absolute left-[20%] top-[39%] text-2xl sm:text-3xl lg:text-4xl font-semibold text-gold sm:w-8/12'>
               {item.subTitle}
             </h3>
             <h3

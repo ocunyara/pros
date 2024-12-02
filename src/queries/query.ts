@@ -118,6 +118,11 @@ export const GET_PAGES_PATH = gql`
                                 id
                             }
                         }
+                        ... on Carousel {
+                            sys {
+                                id
+                            }
+                        }
                     }
                 }
             }
@@ -199,6 +204,23 @@ export const GET_SPLIT_MEDIA_SECTION = gql`
             addButton
             imagePosition
             addBackground
+        }
+    }
+`;
+
+export const GET_CAROUSEL = gql`
+    query carousel($id: String!){
+        carousel(id: $id) {
+            title
+            subTitle
+            slidersCollection {
+                items {
+                    url
+                    title
+                    width
+                    height
+                }
+            }
         }
     }
 `;
