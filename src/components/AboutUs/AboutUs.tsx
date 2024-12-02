@@ -80,28 +80,26 @@ export const AboutUs = (props: IdProps) => {
     </div>
   </div>
   const doctorFullInfo = <>
-    <h2>{title}</h2>
-    <p>aboutUsDescription</p>
     {doctorsListCollection.items.length
       && doctorsListCollection.items.map((item, index: number) => {
         return (
-          <div key={index} className={`py-10 ${index === 0 && 'bg-lite'}`}>
+          <div key={index} className={`${index === 0 && 'bg-lite'}`}>
             <div className='py-10 px-4 2xl:container lg:py-20'>
-              <div className={`flex ${index !== 0 && 'flex-row-reverse'}`}>
-                <Image src={item.image.url} alt={item.name} width={500} height={700}
-                       className={`rounded aspect-[3/4] object-cover mb-14 lg:mb-0 object-top lg:h-full ${index !== 0 ? 'lg:ml-10' : 'lg:mr-10'}`}/>
-                <div>
-                  <h3 className='text-xl font-semibold my-4'>{item.name}</h3>
-                  <div className='font-light size-xs
+              <div className={`flex lg:mb-4 ${index !== 0 && 'flex-row-reverse'}`}>
+                <Image src={item.image.url} alt={item.name} width={500} height={500}
+                       className={`object-cover mb-14 lg:mb-10 object-top aspect-square w-5/12 ${index !== 0 ? 'lg:ml-20' : 'lg:mr-20'}`}/>
+                <div className='w-7/12 self-center'>
+                  <h3 className='text-3xl font-semibold my-4'>{item.name}</h3>
+                  <div className='font-light leading-8 size-xs
                   '><RichText {...item.description.json} /></div>
                 </div>
               </div>
               <div className='flex w-full'>
-                <div>
+                <div className='lg:w-1/2'>
                   <h3 className='text-xl font-semibold my-4'>Суртифікації</h3>
                   <RichText {...item.certificates.json} />
                 </div>
-                <div>
+                <div className='lg:w-1/2'>
                   <h3 className='text-xl font-semibold my-4'>Освіта</h3>
                   <RichText {...item.education.json} />
                 </div>
