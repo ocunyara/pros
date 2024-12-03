@@ -11,6 +11,21 @@
 	}
 }
 
+
+.swiper-button-prev,
+.swiper-button-next {
+	width: 30px !important;
+	height: 30px !important;
+	border-radius: 50%;
+	display: flex;
+	background: #B4AB9B;
+
+	&::after {
+		color: #fff;
+		font-size: 16px !important;
+	}
+}
+
 @media (max-width: 1024px) {
 	.doctors-slider {
 		.swiper-pagination {

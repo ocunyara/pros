@@ -4,8 +4,6 @@ export type Link = {
 }
 
 export type ButtonProps = {
-  button: {
-    buttonTitle: string
-    buttonUrl: string
-  }
+  buttonTitle: string
+  buttonUrl: string
 }

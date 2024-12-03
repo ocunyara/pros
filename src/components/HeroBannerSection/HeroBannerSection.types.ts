@@ -14,10 +14,6 @@ export interface BannerProps {
   tabTitle: string
   fullHeight?: boolean
   button: ButtonProps
-  heroBannerReference: {
-    buttonTitle: string
-    buttonUrl: string
-  }
 }
 
 export interface BannersProps {
