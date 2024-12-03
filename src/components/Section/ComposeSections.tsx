@@ -6,6 +6,7 @@ interface SectionProp {
     items: IdProps[]
   }
 }
+type SectionKeys = keyof typeof allSections;
 
 const ComposeSections = ({sections}: SectionProp) => {
 
@@ -15,7 +16,7 @@ const ComposeSections = ({sections}: SectionProp) => {
     <>
       {sections.items.map((section, index: number) => {
         const { __typename, ...rest } = section
-        const Component = allSections[__typename]
+        const Component = allSections[__typename as SectionKeys];
         console.log(rest)
         if (!Component) {
           console.error(`Section not registered: ${__typename}`)
@@ -23,10 +24,7 @@ const ComposeSections = ({sections}: SectionProp) => {
         }
         return (
           <Component
-            key={section.id}
-            sectionPosition={index}
-            // page={page}
-            // pageData={pageData}
+            key={section.sys.id}
             {...rest}
           />
         )

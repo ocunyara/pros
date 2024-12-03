@@ -5,9 +5,8 @@ export type DescriptionProps = {
 }
 
 export type IdProps = {
-  sectionPosition: number
   sys: {
     id: string
-    __typename?: string
   }
+  __typename?: string
 }
