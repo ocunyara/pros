@@ -12,8 +12,6 @@ export const Banner = ({
    button
 }: BannerProps) => {
 
-  console.log(button)
-
   const scrollY = useRef<number>(0)
   const heroBanner = useRef<HTMLDivElement>(null)
 
