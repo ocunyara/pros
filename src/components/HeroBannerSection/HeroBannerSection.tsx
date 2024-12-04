@@ -53,7 +53,7 @@ export const HeroBannerSection= (props: IdProps) => {
 
   return (
     <div>
-      {cmsData.banersCollection.items.length ? (
+      {cmsData.banersCollection.items.length > 1 ? (
         <div>
           <Swiper
             ref={swiperRef}

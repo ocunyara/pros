@@ -18,7 +18,7 @@
 	height: 30px !important;
 	border-radius: 50%;
 	display: flex;
-	background: #B4AB9B;
+	background: #abb8c3;
 
 	&::after {
 		color: #fff;

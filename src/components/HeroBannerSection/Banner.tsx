@@ -84,29 +84,27 @@ export const SimpleBanner = ({
    button
 }: BannerProps) => {
   return (
-    <div className={`${bannerImage ? 'lg:h-[540px]' : 'bg-global lg:py-32'}`}>
-      <div className='2xl:container px-4'>
-        <div className='xl:w-6/12'>
-          {title && (
-            <div className='mb-4 lg:mb-6'>
-              <span className='text-lg text-white leading-large'>
-                {title}
-              </span>
-            </div>
-          )}
-        </div>
-        <div className='mt-4 lg:mt-6 lg:mb-16 lg:w-10/12'>
-           <span className='text-white leading-7 lg:text-[32px] lg:leading-9'>
-              {subTitle}
-            </span>
-        </div>
-      </div>
+    <div className={`${bannerImage ? 'lg:h-[540px] relative' : 'bg-global lg:py-32'}`}>
       <div className='parallax-bg absolute w-full h-full inset-0 object-cover max-lg:!translate-y-0'>
         {bannerImage.url ? (
-          <Image className='w-full lg:h-[820px] object-cover' src={bannerImage.url} width={1920} height={540} alt='text'/>
+          <Image className='w-full h-full object-cover' src={bannerImage.url} width={1920} height={540}
+                 alt='text'/>
         ) : (
-          <div className='bg-color-blue-3 w-full h-full' />
+          <div className='bg-color-blue-3 w-full h-full'/>
         )}
+      </div>
+      <div className='lg:block absolute w-full h-full inset-0 bg-black/40'/>
+      <div className='flex flex-wrap 2xl:container m-auto px-4 py-24 xl:py-20 h-full relative z-10'>
+        <div className='mb-4 mt-auto xl:w-8/12 lg:mb-6'>
+          <span className='text-4xl lg:text-6xl text-white font-semibold leading-large'>
+            {title}
+          </span>
+        </div>
+        <div className='mt-4 lg:mt-6 lg:w-10/12'>
+          <span className='text-white text-xl leading-7 lg:text-2xl lg:leading-large'>
+            {subTitle}
+          </span>
+        </div>
       </div>
     </div>
   )
