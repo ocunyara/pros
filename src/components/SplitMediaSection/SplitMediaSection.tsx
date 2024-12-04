@@ -46,7 +46,7 @@ const SplitMediaSection = (props: IdProps) => {
   } = cmsData
 
   return (
-    <div className={`mt-20 ${addBackground && 'bg-lite'}`}>
+    <div className={`${addBackground && 'bg-lite'}`}>
       <div className={`2xl:container px-4 lg:self-center flex flex-wrap lg:pt-20 lg:pb-10`}>
         <div className={`self-center py-10 lg:w-1/2 lg:pr-20 ${
           imagePosition && 'lg:order-1 pr-0 lg:pl-20'
