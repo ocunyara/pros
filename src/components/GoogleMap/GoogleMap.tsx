@@ -20,7 +20,6 @@ const GoogleMapSection = () => {
 
   const [map, setMap] = useState<google.maps.Map | null>(null);
 
-  // @ts-ignore
   const onLoad = React.useCallback((map: google.maps.Map) => {
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);
