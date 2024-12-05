@@ -1,6 +1,9 @@
 import { GetStaticProps } from 'next';
 import { fetchRootPages } from '@/queries/contentful';
 import ComposeSections from '@/components/Section/ComposeSections';
+import GoogleMapSection from "../components/GoogleMap/GoogleMap";
+import { APIProvider } from "@vis.gl/react-google-maps";
+
 
 interface HomePageProps {
   page: {
@@ -32,6 +35,7 @@ const HomePage: React.FC<HomePageProps> = ({ page }) => {
   return (
     <>
       <ComposeSections sections={page.sectionsCollection} />
+      <GoogleMapSection />
     </>
   );
 };
