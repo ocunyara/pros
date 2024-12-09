@@ -123,6 +123,11 @@ export const GET_PAGES_PATH = gql`
                                 id
                             }
                         }
+                        ... on DescriptionSection {
+                            sys {
+                                id
+                            }
+                        }
                     }
                 }
             }
@@ -219,6 +224,46 @@ export const GET_CAROUSEL = gql`
                     title
                     width
                     height
+                }
+            }
+        }
+    }
+    
+`;
+export const GET_DESCRIPTION_SECTION = gql`
+    query descriptionSection($id: String!){
+        descriptionSection(id: $id) {
+            title
+            desciprtion {
+                json
+                links {
+                    assets {
+                        block {
+                            size
+                            description
+                            url
+                            width
+                            height
+                            sys {
+                                id
+                            }
+                        }
+                    }
+                    entries {
+                        __typename
+                        inline {
+                            sys {
+                                id
+                            }
+                            __typename
+                        }
+                        block {
+                            sys {
+                                id
+                            }
+                            __typename
+                        }
+                    }
                 }
             }
         }

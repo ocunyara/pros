@@ -2,7 +2,7 @@ import apolloClient from "@/lib/apolloClient";
 import {
   GET_ABOUT_HERO_BANNER,
   GET_ABOUT_US_BLOCK, GET_CAROUSEL,
-  GET_CONTACTS,
+  GET_CONTACTS, GET_DESCRIPTION_SECTION,
   GET_PAGES_PATH,
   GET_SPLIT_MEDIA_SECTION
 } from '@/queries/query'
@@ -55,4 +55,13 @@ export async function getCarousel(id: string) {
   });
 
   return data.carousel;
+}
+
+export async function getDescriptionSection(id: string) {
+  const { data } = await apolloClient.query({
+    query: GET_DESCRIPTION_SECTION,
+    variables: { id },
+  });
+
+  return data.descriptionSection;
 }

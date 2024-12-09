@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaFacebook, FaTelegram } from "react-icons/fa";
+import { FaFacebook, FaTelegram, FaViber } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import logo from '@/assets/logo.svg'
 import { ContactDataProps } from "@/types/contactDataProps";
@@ -30,6 +30,9 @@ const Footer = (props: ContactDataProps) => {
         </li>
         <li className='flex items-center mx-5'>
           <a rel="noopener noreferrer" target='_blank' href="https://www.instagram.com/ploskyriv/"><FaTelegram className='text-3xl' /></a>
+        </li>
+        <li className='flex items-center mx-5'>
+          <a rel="noopener noreferrer" target='_blank' href="https://www.instagram.com/ploskyriv/"><FaViber className='text-3xl' /></a>
         </li>
       </ul>
       <div className='bg-blue text-center text-white p-2'>

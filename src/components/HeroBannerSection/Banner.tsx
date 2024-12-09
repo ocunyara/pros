@@ -95,7 +95,7 @@ export const SimpleBanner = ({
       </div>
       <div className='lg:block absolute w-full h-full inset-0 bg-black/40'/>
       <div className='flex flex-wrap 2xl:container m-auto px-4 py-24 xl:py-20 h-full relative z-10'>
-        <div className='mb-4 mt-auto xl:w-8/12 lg:mb-6'>
+        <div className='mb-4 mt-auto xl:w-9/12 lg:mb-6'>
           <span className='text-4xl lg:text-6xl text-white font-semibold leading-large'>
             {title}
           </span>
