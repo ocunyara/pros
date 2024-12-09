@@ -28,39 +28,37 @@ const Carousel = (props: IdProps) => {
   const { title, subTitle, slidersCollection } = cmsData
 
   return (
-    <div className='bg-primary'>
-      <div className='2xl:container py-15 px-4 lg:self-center flex flex-wrap py-14 lg:py-20'>
-        <h2 className='text-center w-full text-2xl font-bold mb-8 lg:mb-10 lg:text-4xl'>{title}</h2>
-        {subTitle && <div className=''>{subTitle}</div>}
-        <Suspense fallback={<div>Loading...</div>}>
-          <Swiper
-            slidesPerView={1.4}
-            cssMode={true}
-            navigation={true}
-            mousewheel={true}
-            keyboard={true}
-            modules={[Navigation, Mousewheel, Keyboard]}
-            breakpoints={{
-                440: {
-                  slidesPerView: 3.4,
-                },
-                768: {
-                  slidesPerView: 5,
-                },
-              }
-            }
-          >
-            {slidersCollection.items.map((item, index) => (
-              <SwiperSlide key={index}>
-                <div className='px-2'>
-                  <Image className='w-full object-cover' src={item.url} width={item.width}
-                         height={item.height} alt={item.title ? item.title : 'Certificate'}/>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </Suspense>
-      </div>
+    <div className='2xl:container py-15 px-4 lg:self-center flex flex-wrap py-14 lg:py-20'>
+      <h2 className='text-center w-full text-2xl font-bold mb-8 lg:mb-10 lg:text-4xl'>{title}</h2>
+      {subTitle && <div className=''>{subTitle}</div>}
+      <Suspense fallback={<div>Loading...</div>}>
+        <Swiper
+          slidesPerView={1.4}
+          cssMode={true}
+          navigation={true}
+          mousewheel={true}
+          keyboard={true}
+          modules={[Navigation, Mousewheel, Keyboard]}
+          breakpoints={{
+            440: {
+              slidesPerView: 3.4,
+            },
+            768: {
+              slidesPerView: 5,
+            },
+          }
+          }
+        >
+          {slidersCollection.items.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div className='px-2'>
+                <Image className='w-full object-cover' src={item.url} width={item.width}
+                       height={item.height} alt={item.title ? item.title : 'Certificate'}/>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Suspense>
     </div>
   )
 }

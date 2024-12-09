@@ -9,5 +9,5 @@ export default {
   SplitMediaSection,
   AboutUs,
   Carousel,
-  DescriptionSection
+  DescriptionSection: DescriptionSection
 }

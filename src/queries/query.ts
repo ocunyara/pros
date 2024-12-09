@@ -255,6 +255,7 @@ export const GET_DESCRIPTION_SECTION = gql`
                             sys {
                                 id
                             }
+                            __typename
                         }
                         block {
                             sys {
