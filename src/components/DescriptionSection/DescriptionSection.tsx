@@ -1,13 +1,14 @@
+import React, { useEffect, useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
-import React, { useEffect, useState } from "react";
 import { getDescriptionSection } from "@/queries/contentful";
-import Image from 'next/image';
 import { IdProps } from "@/types/entry";
-import classes from "@/components/RichText/styles/RichText.module.css";
 import { DescriptionSectionTypes, EmbeddedAssetNode } from "@/components/DescriptionSection/DescriptionSection.types";
+import Image from 'next/image';
+import { Document, Link } from '@contentful/rich-text-types'
+import classes from "@/components/RichText/styles/RichText.module.css";
 
-function renderOptions(links) {
+function renderOptions(links: Link) {
   const assetMap = new Map();
   const entryMap = new Map();
 
@@ -67,7 +68,7 @@ const DescriptionSection = (props: IdProps) => {
 
 
   return (
-    <div className={`px-4 lg:self-center flex flex-wrap pt-10 lg:pt-20 lg:pb-10 max-w-[1080px] m-auto ${classes['rich-text']}`}>
+    <div className={`px-4 lg:self-center flex flex-wrap pt-10 lg:pt-20 lg:pb-10 max-w-[1180px] m-auto ${classes['rich-text']}`}>
       {documentToReactComponents(cmsData.desciprtion.json, renderOptions(cmsData.desciprtion.links))}
     </div>
   )

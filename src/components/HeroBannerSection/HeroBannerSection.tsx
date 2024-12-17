@@ -19,7 +19,7 @@ export const HeroBannerSection= (props: IdProps) => {
 
 
   const fullHeightView = fullHeight
-    ? 'w-screen h-[540px] lg:h-[820px]'
+    ? 'w-screen h-[640px] lg:h-[820px]'
     : 'h-[570px] lg:h-[340px]'
   const { sys } = props;
 

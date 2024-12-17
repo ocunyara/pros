@@ -11,7 +11,7 @@ const Header = (props: ContactDataProps) => {
   const [openNav, setOpenNav] = useState(false);
   const isMobile = useMedia('(max-width: 1024px)', false);
 
-  return <div className="bg-primary sticky top-0 z-10 shadow-[0px_4px_10px_0px_rgba(0,0,0,0.1)]">
+  return <div className="bg-primary sticky top-0 z-[111] shadow-[0px_4px_10px_0px_rgba(0,0,0,0.1)]">
     <nav className="2xl:container 2xl:mx-auto px-4 py-2 lg:p-4 flex justify-between items-center">
       <Link href='/' className="flex flex-col space-x-3 items-center">
         <Image className='w-14 lg:w-[75px]' src={logo} alt='logo' width='70' height='70'/>

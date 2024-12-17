@@ -37,21 +37,21 @@ export const Banner = ({
 
   return (
     <div className='flex flex-wrap 2xl:containe px-4 py-10 xl:py-20 lg:px-20 h-full bg-gold lg:bg-auto'>
-      <div className='`relative z-10 self-end lg:w-10/12 xl:w-[1000px]'>
+      <div className='`relative z-10 self-center lg:w-10/12 xl:w-[1000px]'>
         {subTitle && (
           <div className='mb-4 lg:mb-6'>
-              <span className='lg:text-xl text-white font-semibold leading-large'>
+              <span className='text-xl text-white font-semibold leading-large'>
                 {title}
               </span>
           </div>
         )}
-        <div className='m lg:mt-6 lg:mb-16'>
-            <span className='text-white font-semibold text-2xl leading-7 lg:text-5xl lg:leading-large'>
+        <div className='mb-5 lg:mt-6 lg:mb-16'>
+            <span className='text-white font-semibold text-3xl leading-7 lg:text-5xl lg:leading-large'>
               {subTitle}
             </span>
         </div>
         {button && (
-              <div className='link-block text-white mt-20 lg:mt-32 mb-10 hidden lg:block'>
+              <div className='link-block text-white mt-20 lg:mt-32 lg:block'>
             {button.buttonUrl &&
               <Link className='text-xl flex items-center' href={button.buttonUrl} title={button.buttonTitle}>
                 {button.buttonTitle} <RiArrowRightSLine className='ml-2 text-2xl' />
@@ -67,12 +67,12 @@ export const Banner = ({
         ref={heroBanner}
         className='parallax-bg absolute w-full h-full inset-0 object-cover max-lg:!translate-y-0'>
         {bannerImage.url ? (
-          <Image className='w-full lg:h-[820px] object-cover' src={bannerImage.url} width={1920} height={820} alt='text'/>
+          <Image className='w-full h-full lg:h-[820px] object-cover' src={bannerImage.url} width={1920} height={820} alt='text'/>
         ) : (
           <div className='bg-color-blue-3 w-full h-full' />
         )}
       </div>
-      <div className='hidden lg:block absolute w-full h-full inset-0 bg-black/40' />
+      <div className='lg:block absolute w-full h-full inset-0 bg-black/40' />
     </div>
   )
 }
